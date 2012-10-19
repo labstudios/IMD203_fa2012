@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Untitled Document</title>
+    <style>
+        .donut{
+            border-bottom: solid 3px #B1B1B1;
+        }
+        
+        .donut p{
+            margin: 1px;
+            padding: 1px;
+        }
+    </style>
+    <script type="text/javascript">
+        var turtles = 0;
+        var names = ["Bob", "Sally", "Fred"];
+        var path = window.location.pathname;
+        var donuts = [];
+        //hard-code the donuts
+        /*donuts.push({
+            type:"cake", 
+            icing:"chocolate", 
+            toppings:["sprinkles","bacon"], 
+            hasHole:false, 
+            filling:"cherry"
+        });
+        
+        donuts.push({
+            type:"pastry", 
+            icing:"glazed", 
+            toppings:["chocolate chips"], 
+            hasHole:true, 
+            filling:""
+        });
+        
+        donuts.push({
+            type:"danish", 
+            icing:"cream cheese", 
+            toppings:["coconut", "m&ms"], 
+            hasHole:true, 
+            filling:"rasberry"
+        });*/
+        
+        //have the user build as many donuts as they want
+        while(confirm("Would you like to build a donut?"))
+        {
+            var donut = {};
+            var toppings = "";
+            donut.type = prompt("What type of dough do we use?");
+            donut.icing = prompt("What icing would you like?");
+            toppings = prompt("What toppings would you like? (separate with commas)");
+            donut.toppings = toppings.split(",");
+            donut.hasHole = confirm("Should the donut have a hole?");
+            donut.filling = prompt("What filling do we use?");
+            donuts.push(donut);
+        }
+        prompt("Would you like fries with that?");
+        //names = path.split("/"); //names is now path parts
+        //using a while loop
+        /*while(turtles < 12)
+        {
+            console.log("There are " + turtles + " turtles");
+            turtles++;
+        }*/
+        /*for(turtles = 0; turtles < 12;turtles++)
+        {
+            console.log("There are " + turtles + " turtles!");
+        }*/
+        /*console.log(path);
+        for(var i = 0; i < names.length;++i)
+        {
+            console.log(names[i]);
+        }*/
+        
+        console.log(donuts);
+    </script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        for(var i = 0; i < donuts.length;++i)
+        {
+            var donut = donuts[i];
+            document.write("<div class=\"donut\">");
+            document.write("<p>Type: " + donut.type + "</p>");
+            document.write("<p>Icing: " + donut.icing + "</p>");
+            document.write("<p>Toppings:<ul>");
+            for(var j = 0; j < donut.toppings.length;++j)
+            {
+                document.write("<li>" + donut.toppings[j] + "</li>");
+            }
+            document.write("</ul></p>");
+            document.write("<p>Make a hole: " + (donut.hasHole ? "Yes":"No") + "</p>");
+            document.write("<p>Filling: " + donut.filling + "</p>");
+            document.write("</div>");
+            
+        }
+    </script>
+</body>
+</html>
