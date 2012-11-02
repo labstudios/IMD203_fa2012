@@ -1,0 +1,84 @@
+<html>
+<head>
+	<title>Example JS</title>
+	<script type="text/javascript">
+		var answer1 = multiplier(5, 7);
+		var answer2 = multiplier(12);
+		var answer3 = multiplier();
+		var m1 = function(){
+			return 487;
+		};
+
+		var cat = {
+			furColor: "purple",
+			tailLength: "long",
+			height: "7 feet",
+
+			speak: function(){
+				console.log("meow");
+			},
+
+			eat: function(){
+				console.log("The cat's " + this.furColor + " fur is now shinier.");
+			}
+		};
+
+		function multiplier(n1, n2)
+		{
+			var ans = 0;
+			if(isNaN(n1))
+			{
+				n1 = 0;
+			}
+			if(isNaN(n2))
+			{
+				n2 = 1;
+			}
+			ans = n1 * n2;
+			return ans;
+		}
+
+		function wrapper(fn)
+		{
+			fn();
+		}
+
+		function wrong()
+		{
+			alert("Not me. The other one. Pay attention!");
+		}
+
+		function joke()
+		{
+			alert("You have to click the button to find out.");
+		}
+
+		function right()
+		{
+			alert("Woohoo! I been clicked!");
+		}
+
+		console.log(answer1, answer2, answer3, m1(3, 5));
+
+		cat.speak();
+		cat.eat();
+		cat.speak();
+
+		wrapper(function(){
+			alert("I got called by the wrapper.");
+		});
+	</script>
+</head>
+<body>
+	<input type="button" value="How do you keep a fool occupied?" onmouseover="joke()" onclick="wrong()" />
+	<button onclick="right()">No, Click me!!</button>
+</body>
+</html>
+
+
+
+
+
+
+
+
