@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html" />
+
+	<title>Form Validation</title>
+    <style>
+        label{
+            display: block;
+        }
+        label.error{
+            float: right;
+            display: inline-block;
+            color: red;
+            background-color: #FFF0F0;
+            font-size: 19px;
+            font-weight: bold;
+        }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/jquery.validate.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#donutform").validate({
+                rules:{
+                    firstName:{
+                        rangelength: [2, 15]
+                    }
+                },
+                messages:
+                {
+                    firstName:{
+                        rangelength: "It needs to be longer. . . maybe shorter",
+                        required: "I need yer name, dude!"
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+<form id="donutform" action="process.php" enctype="multipart/form-data" method="get">
+    <input type="hidden" name="uid" value="123" />
+    <label>
+        First Name: <input type="text" name="firstName" class="required" />
+    </label>
+    <label>
+        Last Name: <input type="text" name="lastName" class="required" />
+    </label>
+    <label>
+        Password: <input type="password" name="password" />
+    </label>
+    <h4>Dough type:</h4>
+    <label>
+        <input type="radio" name="dough" value="normal" checked="checked" /> Normal
+    </label>
+    <label>
+        <input type="radio" name="dough" value="cake" /> Cake
+    </label>
+    <label>
+        <input type="radio" name="dough" value="cruller" /> Cruller
+    </label>
+    <label>
+        <input type="radio" name="dough" value="bearclaw" />
+        Bear Claw
+    </label>
+    <h4>Toppings:</h4>
+    <label>
+        <input class="required" type="checkbox" name="toppings[]" value="glazed" />
+        Glazed
+    </label>
+    <label>
+        <input class="required" type="checkbox" name="toppings[]" value="chocIcing" />
+        Chocolate icing
+    </label>
+    <label>
+        <input class="required" type="checkbox" name="toppings[]" value="sprinkles" />
+        Sprinkles
+    </label>
+    <label>
+    How many do you want?
+        <select name="amount">
+            <option value="1">Just one</option>
+            <option value="6">Half-dozen</option>
+            <option value="12">One dozen</option>
+        </select>
+    </label>
+    <input type="submit" value="Order it!" />
+    <input type="reset" value="Start Over" />
+</form>
+
+</body>
+</html>
