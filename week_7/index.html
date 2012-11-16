@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html" />
+
+	<title>Lightbox</title>
+    <link rel="stylesheet" href="css/jquery.lightbox-0.5.css" />
+    <style>
+        a[href^='photos']{
+            text-decoration: none;
+        }
+    </style>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.lightbox-0.5.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var lbSettings = {overlayOpacity: 0.3};
+            $("#header a[href^='photos']").lightBox({
+                overlayBgColor: "#ff0000",
+                overlayOpacity: 0.2,
+                containerResizeSpeed: 200
+            });
+            $("#footer a[href^='photos']").lightBox(lbSettings);
+        });
+    </script>
+</head>
+
+<body>
+
+<div id="header">
+    <a href="photos/image1.jpg" title="It's a blue flower. I am not a Botanist.">
+        <img src="photos/thumb_image1.jpg" />
+    </a>
+    
+    <a href="photos/image2.jpg">
+        <img src="photos/thumb_image2.jpg" />
+    </a>
+</div>
+*****
+<div id="footer">
+    <a href="photos/image3.jpg">
+        <img src="photos/thumb_image3.jpg" />
+    </a>
+    <a href="photos/image4.jpg">
+        <img src="photos/thumb_image4.jpg" />
+    </a>
+    <a href="photos/image5.jpg">
+        <img src="photos/thumb_image5.jpg" />
+    </a>
+</div>
+</body>
+</html>
